@@ -6,10 +6,10 @@ using UnityEngine.UI;
 public class Engine : MonoBehaviour
 {
 	public GameObject thisPanel;
-	public double Power { get; set; }
-	public int Lvl { get; set; }
-	public int Materials { get; set; }
-	public double Price { get; set; }
+	public double power { get; set; }
+	public int lvl { get; set; }
+	public int materialsWasted { get; set; }
+	public double price { get; set; }
 
 
 	/**
