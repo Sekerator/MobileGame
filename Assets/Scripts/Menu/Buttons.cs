@@ -8,7 +8,6 @@ using UnityEngine.UI;
 public class Buttons : MonoBehaviour
 {
 	public string url = "http://mopsnet.tk/";
-	public Button play;
 	/**
 	 * Функция для кнопки играть
 	 */
