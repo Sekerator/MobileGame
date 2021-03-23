@@ -7,7 +7,7 @@ public class Chassis : MonoBehaviour
 {
 	public GameObject thisPanel;
 	public double power { get; set; }
-	public int lvl { get; set; }
+	public int model { get; set; }
 	public int materialsWasted { get; set; }
 	public double price { get; set; }
 
