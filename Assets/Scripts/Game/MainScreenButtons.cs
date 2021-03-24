@@ -6,7 +6,7 @@ using UnityEngine.UI;
 
 public class MainScreenButtons : MonoBehaviour
 {
-    public GameObject marketingPanel, assemblyPanel, bankPanel, researchPanel, marketPanel, storagePanel, bodyPanel, enginePanel, chassisPanel;
+    public GameObject marketingPanel, assemblyPanel, bankPanel, researchPanel, marketPanel, storagePanel, componentsPanel;
 
     public void marketingButt()
 	{
@@ -32,16 +32,22 @@ public class MainScreenButtons : MonoBehaviour
 	{
 		storagePanel.SetActive(true);
 	}
-	public void bodyButt()
+	public void componentsButt()
 	{
-		bodyPanel.SetActive(true);
+		componentsPanel.SetActive(true);
 	}
-	public void engineButt()
+
+	IEnumerator loadingExit()
 	{
-		enginePanel.SetActive(true);
+		WWWForm form = new WWWForm();
+		form.AddField("request", "delete_user");
+		form.AddField("nickname", PlayerPrefs.GetString("nickname"));
+		WWW www = new WWW(PlayerPrefs.GetString("url"), form);
+		yield return www;
 	}
-	public void chassisButt()
+
+	private void OnApplicationQuit()
 	{
-		chassisPanel.SetActive(true);
+		StartCoroutine(loadingExit());
 	}
 }
