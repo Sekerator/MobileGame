@@ -10,7 +10,6 @@ public class GlobalParam : MonoBehaviour
     public double money { get; set; }
     public int marketing { get; set; }
     public int research { get; set; }
-    public int machineToolCount { get; set; }
     public int time { get; set; }
 }
 
