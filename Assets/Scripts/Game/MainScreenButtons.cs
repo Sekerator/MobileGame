@@ -49,5 +49,6 @@ public class MainScreenButtons : MonoBehaviour
 	private void OnApplicationQuit()
 	{
 		StartCoroutine(loadingExit());
+		PlayerPrefs.DeleteAll();
 	}
 }

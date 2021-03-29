@@ -13,7 +13,8 @@ public class Buttons : MonoBehaviour
 	public Button playButton;
 	public GameObject loadingPanel;
 	public Text loadingText;
-	private int countPlayers = 1;
+	private int countPlayers = 3;
+	private float timeRemaining = 30f;
 	private string layout = "Пожалуйста ожидайте\nПользователей в очереди: ";
 
 	private void Awake()
@@ -31,7 +32,12 @@ public class Buttons : MonoBehaviour
 
 	private void FixedUpdate()
 	{
-		StartCoroutine(countPlayer());
+		timeRemaining -= Time.deltaTime;
+		if (timeRemaining <= 0)
+		{
+			StartCoroutine(countPlayer());
+			timeRemaining = 30f;
+		}
 	}
 
 	/**
@@ -39,12 +45,21 @@ public class Buttons : MonoBehaviour
 	 */
 	IEnumerator countPlayer()
 	{
+		// Получение количества пользователей в очереди
 		WWWForm form = new WWWForm();
 		form.AddField("request", "count_users");
 		WWW www = new WWW(url, form);
 		yield return www;
+		
+		// Получение номера комнаты
+		WWWForm forms = new WWWForm();
+		forms.AddField("request", "get_room");
+		forms.AddField("nickname", PlayerPrefs.GetString("nickname"));
+		WWW wwws = new WWW(url, forms);
+		yield return wwws;
+		
 		loadingText.text = layout + www.text;
-		if (Convert.ToInt32(www.text) >= countPlayers)
+		if (www.text == countPlayers.ToString() || wwws.text != "-1")
 		{
 			form = new WWWForm();
 			form.AddField("request", "start_game");
@@ -108,5 +123,6 @@ public class Buttons : MonoBehaviour
 	private void OnApplicationQuit()
 	{
 		StartCoroutine(loadingExit());
+		PlayerPrefs.DeleteAll();
 	}
 }
