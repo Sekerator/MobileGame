@@ -47,9 +47,14 @@ public class Market : MonoBehaviour
 			materialBuyPanel.SetActive(false);
 			globalParametrs.money.text =
 				(Convert.ToInt32(globalParametrs.money.text) - (Convert.ToInt32(amountMaterials.text) * 4)).ToString();
-			globalParametrs.materials.text = amountMaterials.text;
+			globalParametrs.materials.text = (Convert.ToInt32(globalParametrs.materials.text) + Convert.ToInt32(amountMaterials.text)).ToString();
 		}
 		else
+		{
 			errorText.SetActive(true);
+			closeButton.interactable = true;
+			materialBuyPanel.SetActive(false);
+		}
+
 	}
 }

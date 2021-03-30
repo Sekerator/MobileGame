@@ -1,7 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="eaa42414-c2cd-4877-8c56-7595586efe28" name="Default Changelist" comment="" />
+    <list default="true" id="eaa42414-c2cd-4877-8c56-7595586efe28" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.Project/.idea/indexLayout.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Project/.idea/indexLayout.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.Project/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Project/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Game/Market.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Game/Market.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Game/Marketing.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Game/Marketing.cs" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -13,6 +18,8 @@
   <component name="IdeDocumentHistory">
     <changedPaths>
       <option value="$PROJECT_DIR$/Assets/Scripts/Game/Engine.cs" />
+      <option value="$PROJECT_DIR$/Assets/Scripts/Game/Marketing.cs" />
+      <option value="$PROJECT_DIR$/Assets/Scripts/Game/Market.cs" />
     </changedPaths>
   </component>
   <component name="ProjectId" id="1pktrilB6RyYtCJjJm1BXuYw0qt" />
@@ -57,6 +64,7 @@
       <updated>1615739122944</updated>
       <workItem from="1615739192150" duration="375000" />
       <workItem from="1615741737716" duration="1449000" />
+      <workItem from="1617095540084" duration="2140000" />
     </task>
     <servers />
   </component>
