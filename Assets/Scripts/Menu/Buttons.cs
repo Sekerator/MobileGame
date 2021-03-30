@@ -9,7 +9,8 @@ using UnityEngine.UI;
 public class Buttons : MonoBehaviour
 {
 	public InputField nickname;
-	private string url = "http://mopsnet.tk/startGame.php";
+	//private string url = "http://mopsnet.tk/startGame.php";
+	private string url = "http://dev.mobile.game/startGame.php";
 	public Button playButton;
 	public GameObject loadingPanel;
 	public Text loadingText;

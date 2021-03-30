@@ -11,6 +11,7 @@ public class Body : MonoBehaviour
 	public int model { get; set; }
 	public int materialsWasted { get; set; }
 	public double price { get; set; }
+	public int count { get; set; }
 
 
 	/**

@@ -10,6 +10,7 @@ public class Engine : MonoBehaviour
 	public string model { get; set; }
 	public int materialsWasted { get; set; }
 	public double price { get; set; }
+	public int count { get; set; }
 
 
 	/**

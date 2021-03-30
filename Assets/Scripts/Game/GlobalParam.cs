@@ -2,18 +2,51 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 using SimpleJSON;
 
 public class GlobalParam : MonoBehaviour
 {
-    public int materials { get; set; }
-    public double money { get; set; }
-    public int marketing { get; set; }
-    public int research { get; set; }
-    public int time { get; set; }
+    public Text materials, money, marketing, research, time;
+
+    private void Awake()
+    {
+        materials.text = "0";
+        money.text = "100000";
+        marketing.text = "1";
+        research.text = "0";
+        time.text = "Jan 1900";
+    }
 }
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+//------------------------------------------------------------------------------------------
 /* Пример работы с PHP
  
 public class GlobalParam : MonoBehaviour
