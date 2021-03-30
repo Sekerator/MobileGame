@@ -7,7 +7,7 @@ using SimpleJSON;
 
 public class GlobalParam : MonoBehaviour
 {
-    public Text materials, money, marketing, research, time;
+    public Text materials, money, marketing, research, time, sumCredit, perioCredit;
 
     private void Awake()
     {
@@ -16,6 +16,8 @@ public class GlobalParam : MonoBehaviour
         marketing.text = "1";
         research.text = "0";
         time.text = "Зима 1900";
+        sumCredit.text = "0";
+        perioCredit.text = "0";
     }
 }
 
