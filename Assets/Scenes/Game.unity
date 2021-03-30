@@ -4165,7 +4165,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   thisPanel: {fileID: 1983653552}
-  close_butt: {fileID: 0}
+  errorText: {fileID: 0}
+  mainPanel: {fileID: 0}
+  closeButton: {fileID: 0}
+  materialBuyPanel: {fileID: 0}
+  amountMaterials: {fileID: 0}
 --- !u!114 &1659199466
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4255,6 +4259,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 59c9e848fd1ad534b9c38117b256a65a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  materials: {fileID: 0}
+  money: {fileID: 0}
+  marketing: {fileID: 0}
+  research: {fileID: 0}
+  time: {fileID: 0}
 --- !u!1 &1679933460
 GameObject:
   m_ObjectHideFlags: 0
@@ -5850,7 +5859,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1983653553
 RectTransform:
   m_ObjectHideFlags: 0
