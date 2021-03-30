@@ -15,7 +15,7 @@ public class GlobalParam : MonoBehaviour
         money.text = "100000";
         marketing.text = "1";
         research.text = "0";
-        time.text = "Jan 1900";
+        time.text = "Зима 1900";
     }
 }
 
