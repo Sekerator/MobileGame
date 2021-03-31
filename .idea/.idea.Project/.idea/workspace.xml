@@ -2,9 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="eaa42414-c2cd-4877-8c56-7595586efe28" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.Project/.idea/indexLayout.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Project/.idea/indexLayout.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.Project/.idea/contentModel.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Project/.idea/contentModel.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.Project/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Project/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scenes/Game.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/Game.unity" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/Game/Bank.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Game/Bank.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/Game/GlobalParam.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Game/GlobalParam.cs" afterDir="false" />
     </list>
@@ -69,6 +68,7 @@
       <workItem from="1615741737716" duration="1449000" />
       <workItem from="1617095540084" duration="2720000" />
       <workItem from="1617128677653" duration="8617000" />
+      <workItem from="1617171204120" duration="2590000" />
     </task>
     <servers />
   </component>

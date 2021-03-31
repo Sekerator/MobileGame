@@ -11,9 +11,7 @@
             <e p="Assembly.cs" t="Include" />
             <e p="Auto.cs" t="Include" />
             <e p="Bank.cs" t="Include" />
-            <e p="Body.cs" t="Include" />
-            <e p="Chassis.cs" t="Include" />
-            <e p="Engine.cs" t="Include" />
+            <e p="Components.cs" t="Include" />
             <e p="GlobalParam.cs" t="Include" />
             <e p="MainScreenButtons.cs" t="Include" />
             <e p="Market.cs" t="Include" />

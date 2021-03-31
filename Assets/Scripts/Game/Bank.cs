@@ -18,9 +18,14 @@ public class Bank : MonoBehaviour
 	public GameObject infoRepayCredirPanel;
 	public Text	balanceCredit, periodCreditText;
 	public InputField sumAmountFieldR;
+
+	public Text sumCreditGeneral, periodCreditGenerel;
+
 	private void Awake()
 	{
 		globalParametrs = mainPanel.GetComponent<GlobalParam>();
+		sumCreditGeneral.text = "0";
+		periodCreditGenerel.text = "0";
 	}
 	public void closeButt()
 	{
@@ -45,15 +50,15 @@ public class Bank : MonoBehaviour
 	{
 		infoRepayCredirPanel.SetActive(true);
 		//остаток по кредиту
-		balanceCredit.text = globalParametrs.sumCredit.text + '$';
+		balanceCredit.text = sumCreditGeneral.text + '$';
 		// вычисление процента кредита
-		periodCreditText.text = globalParametrs.perioCredit.text;
+		periodCreditText.text = periodCreditGenerel.text;
 		
 	}
 	// нажатие кнопки "Взять кредит"
 	public void takeCredit_butt()
 	{
-		globalParametrs.sumCredit.text = sumAmountCredit.text;
+		sumCreditGeneral.text = (Convert.ToInt32(sumCreditGeneral.text) + Convert.ToInt32(sumAmountCredit.text)).ToString();
 		
 		globalParametrs.money.text =
 			(Convert.ToInt32(globalParametrs.money.text) + Convert.ToInt32(sumAmountCredit.text)).ToString();
@@ -69,17 +74,17 @@ public class Bank : MonoBehaviour
 		if (Convert.ToInt32(sumAmountCredit.text) <= 10000)
 		{
 			periodCredit.text = "1 года";
-			globalParametrs.perioCredit.text = periodCredit.text;
+			periodCreditGenerel.text = periodCredit.text;
 		}
 		if ((Convert.ToInt32(sumAmountCredit.text) > 10000) && (Convert.ToInt32(sumAmountCredit.text) <= 50000))
 		{
 			periodCredit.text = "3 лет";
-			globalParametrs.perioCredit.text = periodCredit.text;
+			periodCreditGenerel.text = periodCredit.text;
 		}
 		if (Convert.ToInt32(sumAmountCredit.text) > 50000)
 		{
 			periodCredit.text = "5 лет";
-			globalParametrs.perioCredit.text = periodCredit.text;
+			periodCreditGenerel.text = periodCredit.text;
 		}
 
 		// вычисление суммы выплаты в педиод
@@ -97,15 +102,17 @@ public class Bank : MonoBehaviour
 	public void repayCredit_butt()
 	{
 		//оснонуление глобальной переменной по сумме кредита и по периоду
-		if (Convert.ToInt32(sumAmountFieldR.text) == Convert.ToInt32(globalParametrs.sumCredit.text))
+		if (Convert.ToInt32(sumAmountFieldR.text) == Convert.ToInt32(sumCreditGeneral.text))
 		{
 			globalParametrs.money.text =
 				(Convert.ToInt32(globalParametrs.money.text) - Convert.ToInt32(sumAmountFieldR.text)).ToString();
+
 			balanceCredit.text = "";
 			periodCreditText.text = "";
+			
+			sumCreditGeneral.text = "0";
+			periodCreditGenerel.text = "0";
 		}
-
-
 	}
 
 }
