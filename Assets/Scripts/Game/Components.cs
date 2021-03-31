@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class Engine : MonoBehaviour
+public class Components : MonoBehaviour
 {
 	public GameObject thisPanel;
 	public double power { get; set; }
@@ -20,4 +20,6 @@ public class Engine : MonoBehaviour
 	{
 		thisPanel.SetActive(false);
 	}
+	
+	
 }
