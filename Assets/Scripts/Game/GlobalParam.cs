@@ -8,14 +8,36 @@ using SimpleJSON;
 public class GlobalParam : MonoBehaviour
 {
     public Text materials, money, marketing, research, time;
-
+    private string[] season = {"Зима","Весна","Лето","Осень"};
+    private string year = "1900";
+    private int thisSeason = 0;
+    
     private void Awake()
     {
         materials.text = "0";
         money.text = "100000";
         marketing.text = "1";
         research.text = "0";
-        time.text = "Зима 1900";
+        time.text = season[thisSeason] + " " + year;
+    }
+
+    private void nextSeason()
+    {
+        if (thisSeason == 3)
+        {
+            thisSeason = 0;
+            year = (Convert.ToInt32(year) + 1).ToString();
+        }
+        else
+            thisSeason++;
+        time.text = season[thisSeason] + " " + year;
+    }
+    
+    public void nextSeason_butt()
+    {
+        gameObject.GetComponent<Bank>().seasonNext();
+        
+        nextSeason();
     }
 }
 

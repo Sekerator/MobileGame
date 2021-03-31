@@ -6,113 +6,94 @@ using UnityEngine.UI;
 
 public class Bank : MonoBehaviour
 {
-	public GameObject thisPanel, mainPanel;
+	public GameObject mainPanel;
 	private GlobalParam globalParametrs;
 
-	// объекты для взятия кредита
-	public GameObject infoTakeCreditPanel;
-	public Text	percentCreditText, periodCredit, sumAmount;
-	public InputField sumAmountCredit;
+	private double sumCredit = 0;
+	public Text period, percent, seasonPay, remainderCredit;
 	
-	// объекты для погашения кредита
-	public GameObject infoRepayCredirPanel;
-	public Text	balanceCredit, periodCreditText;
-	public InputField sumAmountFieldR;
+	// Take
+	public InputField takeCredit;
 
-	public Text sumCreditGeneral, periodCreditGenerel;
+	// Repay
+	public InputField repayCredit;
+
 
 	private void Awake()
 	{
 		globalParametrs = mainPanel.GetComponent<GlobalParam>();
-		sumCreditGeneral.text = "0";
-		periodCreditGenerel.text = "0";
+		remainderCredit.text = "0";
 	}
-	public void closeButt()
+
+	/**
+	 * расчёт процента по кредиту
+	 */
+	void getPercent()
 	{
-		thisPanel.SetActive(false);
+		if ((sumCredit > 0) && (sumCredit <= 100000))
+			percent.text = "10";
+		else if ((sumCredit > 100000) && (sumCredit <= 500000))
+			percent.text = "20";
+		else if ((sumCredit > 500000) && (sumCredit <= 1000000))
+			percent.text = "30";
+		else
+			percent.text = "50";
 	}
-	public void closeButtT()
+	
+	/**
+	 * расчёт периода по кредиту
+	 */
+	void getPeriod()
 	{
-		infoTakeCreditPanel.SetActive(false);
+		if ((sumCredit > 0) && (sumCredit <= 100000))
+			period.text = "4";
+		else if ((sumCredit > 100000) && (sumCredit <= 500000))
+			period.text = "12";
+		else if ((sumCredit > 500000) && (sumCredit <= 1000000))
+			period.text = "20";
+		else
+			period.text = "40";
 	}
-	public void closeButtR()
-	{
-		infoRepayCredirPanel.SetActive(false);
-	}
-	// открытие панели "Взять кредит"
-	public void take_butt()
-	{
-		infoTakeCreditPanel.SetActive(true);
-		
-	}
-	// открытие панели "Погасить кредит"
-	public void repay_butt()
-	{
-		infoRepayCredirPanel.SetActive(true);
-		//остаток по кредиту
-		balanceCredit.text = sumCreditGeneral.text + '$';
-		// вычисление процента кредита
-		periodCreditText.text = periodCreditGenerel.text;
-		
-	}
-	// нажатие кнопки "Взять кредит"
+
 	public void takeCredit_butt()
 	{
-		sumCreditGeneral.text = (Convert.ToInt32(sumCreditGeneral.text) + Convert.ToInt32(sumAmountCredit.text)).ToString();
-		
-		globalParametrs.money.text =
-			(Convert.ToInt32(globalParametrs.money.text) + Convert.ToInt32(sumAmountCredit.text)).ToString();
-		// вычисление процента кредита
-		if (Convert.ToInt32(sumAmountCredit.text) <= 10000)
-			percentCreditText.text = "10 %";
-		if ((Convert.ToInt32(sumAmountCredit.text) > 10000) && (Convert.ToInt32(sumAmountCredit.text) <= 50000))
-			percentCreditText.text = "15 %";
-		if (Convert.ToInt32(sumAmountCredit.text) > 50000)
-			percentCreditText.text = "25 %";
+		sumCredit += Convert.ToDouble(takeCredit.text);
+		globalParametrs.money.text = (Convert.ToDouble(globalParametrs.money.text) + Convert.ToDouble(takeCredit.text)).ToString();
 
-		// вычисление срока кредита
-		if (Convert.ToInt32(sumAmountCredit.text) <= 10000)
-		{
-			periodCredit.text = "1 года";
-			periodCreditGenerel.text = periodCredit.text;
-		}
-		if ((Convert.ToInt32(sumAmountCredit.text) > 10000) && (Convert.ToInt32(sumAmountCredit.text) <= 50000))
-		{
-			periodCredit.text = "3 лет";
-			periodCreditGenerel.text = periodCredit.text;
-		}
-		if (Convert.ToInt32(sumAmountCredit.text) > 50000)
-		{
-			periodCredit.text = "5 лет";
-			periodCreditGenerel.text = periodCredit.text;
-		}
-
-		// вычисление суммы выплаты в педиод
-		if (Convert.ToInt32(sumAmountCredit.text) <= 10000)
-			sumAmount.text = ((Convert.ToDouble(sumAmountCredit.text) +
-			                   Convert.ToDouble(sumAmountCredit.text) * 0.1) / 4).ToString() + '$';
-		if ((Convert.ToInt32(sumAmountCredit.text) > 10000) && (Convert.ToInt32(sumAmountCredit.text) <= 50000))
-			sumAmount.text = ((Convert.ToDouble(sumAmountCredit.text) + 
-			                   Convert.ToDouble(sumAmountCredit.text) * 0.15) / 12).ToString() + '$';
-		if (Convert.ToInt32(sumAmountCredit.text) > 50000)
-			sumAmount.text = ((Convert.ToDouble(sumAmountCredit.text) + 
-			                   Convert.ToDouble(sumAmountCredit.text) * 0.25) / 20).ToString() + '$';
+		getPercent();
+		sumCredit = sumCredit + sumCredit * Convert.ToDouble(percent.text) / 100.00f;
+		getPeriod();
+		seasonPay.text = (sumCredit / Convert.ToDouble(period.text)).ToString();
+		remainderCredit.text = sumCredit.ToString();
 	}
-	// нажатие кнопки "Погасить кредит"
+	
 	public void repayCredit_butt()
 	{
-		//оснонуление глобальной переменной по сумме кредита и по периоду
-		if (Convert.ToInt32(sumAmountFieldR.text) == Convert.ToInt32(sumCreditGeneral.text))
+		if (Convert.ToDouble(globalParametrs.money.text) >= Convert.ToDouble(repayCredit.text) &&
+		    Convert.ToDouble(repayCredit.text) <= sumCredit)
 		{
-			globalParametrs.money.text =
-				(Convert.ToInt32(globalParametrs.money.text) - Convert.ToInt32(sumAmountFieldR.text)).ToString();
+			sumCredit -= Convert.ToDouble(repayCredit.text);
+			globalParametrs.money.text = (Convert.ToDouble(globalParametrs.money.text) - Convert.ToDouble(repayCredit.text)).ToString();
 
-			balanceCredit.text = "";
-			periodCreditText.text = "";
-			
-			sumCreditGeneral.text = "0";
-			periodCreditGenerel.text = "0";
+			getPercent();
+			getPeriod();
+			seasonPay.text = (sumCredit / Convert.ToDouble(period.text)).ToString();
+			remainderCredit.text = sumCredit.ToString();
 		}
 	}
 
+	public void seasonNext()
+	{
+		if (Convert.ToInt32(period.text) > 0)
+		{
+			sumCredit -= Convert.ToDouble(seasonPay.text);
+			if (sumCredit < 0)
+				sumCredit = 0;
+			globalParametrs.money.text = (Convert.ToDouble(globalParametrs.money.text) - Convert.ToDouble(seasonPay.text)).ToString();
+
+			period.text = (Convert.ToInt32(period.text) - 1).ToString();
+			seasonPay.text = (sumCredit / Convert.ToDouble(period.text)).ToString();
+			remainderCredit.text = sumCredit.ToString();
+		}
+	}
 }
