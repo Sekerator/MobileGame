@@ -12,6 +12,8 @@ public class Marketing : MonoBehaviour
 	private void Awake()
 	{
 		globalParametrs = mainPanel.GetComponent<GlobalParam>();
+		if (!PlayerPrefs.HasKey("marketing"))
+			PlayerPrefs.SetString("marketing", "0");
 	}
 	
 	public void closeButt()
@@ -21,41 +23,48 @@ public class Marketing : MonoBehaviour
 
 	public void newspaper_butt()
 	{
-		if (Convert.ToInt32(globalParametrs.money.text) >= 1000)
+		if (Convert.ToDouble(globalParametrs.money.text) >= 1000)
 		{
 			errorText.SetActive(false);
-			globalParametrs.marketing.text =
-				(Convert.ToInt32(globalParametrs.marketing.text) + 5).ToString();
+			PlayerPrefs.SetString("marketing", (Convert.ToInt32(PlayerPrefs.GetString("marketing")) + 5).ToString());
 			globalParametrs.money.text =
-				(Convert.ToInt32(globalParametrs.money.text) - 1000).ToString();
+				(Convert.ToDouble(globalParametrs.money.text) - 1000).ToString();
 		}
 		else
 			errorText.SetActive(true);
 	}
 	public void radio_butt()
 	{
-		if (Convert.ToInt32(globalParametrs.money.text) >= 2000)
+		if (Convert.ToDouble(globalParametrs.money.text) >= 2000)
 		{
 			errorText.SetActive(false);
-			globalParametrs.marketing.text =
-				(Convert.ToInt32(globalParametrs.marketing.text) + 10).ToString();
+			PlayerPrefs.SetString("marketing", (Convert.ToInt32(PlayerPrefs.GetString("marketing")) + 10).ToString());
 			globalParametrs.money.text =
-				(Convert.ToInt32(globalParametrs.money.text) - 2000).ToString();
+				(Convert.ToDouble(globalParametrs.money.text) - 2000).ToString();
 		}
 		else
 			errorText.SetActive(true);
 	}
 	public void tv_butt()
 	{
-		if (Convert.ToInt32(globalParametrs.money.text) >= 5000)
+		if (Convert.ToDouble(globalParametrs.money.text) >= 5000)
 		{
 			errorText.SetActive(false);
-			globalParametrs.marketing.text =
-				(Convert.ToInt32(globalParametrs.marketing.text) + 15).ToString();
+			PlayerPrefs.SetString("marketing", (Convert.ToInt32(PlayerPrefs.GetString("marketing")) + 15).ToString());
 			globalParametrs.money.text =
-				(Convert.ToInt32(globalParametrs.money.text) - 5000).ToString();
+				(Convert.ToDouble(globalParametrs.money.text) - 5000).ToString();
 		}
 		else 
 			errorText.SetActive(true);
+	}
+
+	public void nextSeason()
+	{
+		if (PlayerPrefs.HasKey("marketing"))
+		{
+			globalParametrs.marketing.text = (Convert.ToInt32(globalParametrs.marketing.text) +
+			                                  Convert.ToInt32(PlayerPrefs.GetString("marketing"))).ToString();
+			PlayerPrefs.DeleteKey("marketing");
+		}
 	}
 }

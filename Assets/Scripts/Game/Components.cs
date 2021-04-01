@@ -163,7 +163,7 @@ public class Components : MonoBehaviour
 			viewInfo(chassis[numberObject]);
 		else
 		{
-			modelTextView.text = "Нету компонентов";
+			modelTextView.text = "Нет компонентов";
 			powerTextView.text = "";
 			priceTextView.text = "";
 			countTextView.text = "";
