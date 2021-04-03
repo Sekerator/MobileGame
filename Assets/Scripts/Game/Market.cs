@@ -40,13 +40,13 @@ public class Market : MonoBehaviour
 	 */
 	public void materialBuyButt_FromPanel()
 	{
-		if (Convert.ToInt32(globalParametrs.money.text) >= (Convert.ToInt32(amountMaterials.text) * 4))
+		if (Convert.ToInt64(globalParametrs.money.text) >= (Convert.ToInt64(amountMaterials.text) * 4))
 		{
 			errorText.SetActive(false);
 			closeButton.interactable = true;
 			materialBuyPanel.SetActive(false);
 			globalParametrs.money.text =
-				(Convert.ToInt32(globalParametrs.money.text) - (Convert.ToInt32(amountMaterials.text) * 4)).ToString();
+				(Convert.ToInt64(globalParametrs.money.text) - (Convert.ToInt64(amountMaterials.text) * 4)).ToString();
 			globalParametrs.materials.text = (Convert.ToInt32(globalParametrs.materials.text) + Convert.ToInt32(amountMaterials.text)).ToString();
 		}
 		else

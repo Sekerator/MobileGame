@@ -64,7 +64,7 @@ public class Marketing : MonoBehaviour
 		{
 			globalParametrs.marketing.text = (Convert.ToInt32(globalParametrs.marketing.text) +
 			                                  Convert.ToInt32(PlayerPrefs.GetString("marketing"))).ToString();
-			PlayerPrefs.DeleteKey("marketing");
+			PlayerPrefs.SetString("marketing", "0");
 		}
 	}
 }

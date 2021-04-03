@@ -2,11 +2,18 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="eaa42414-c2cd-4877-8c56-7595586efe28" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.Project/.idea/contentModel.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Project/.idea/contentModel.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.Project/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Project/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scenes/Game.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/Game.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Game/Bank.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Game/Bank.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Game/Components.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Game/Components.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Game/GlobalParam.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Game/GlobalParam.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scenes/Menu.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/Menu.unity" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Game/Market.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Game/Market.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Game/Marketing.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Game/Marketing.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Game/Research.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Game/Research.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Game/Storage.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Game/Storage.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Menu/Buttons.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Menu/Buttons.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprites/Game/TRUCKS.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprites/Game/TRUCKS.png.meta" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -19,11 +26,13 @@
   <component name="IdeDocumentHistory">
     <changedPaths>
       <option value="$PROJECT_DIR$/Assets/Scripts/Game/Engine.cs" />
-      <option value="$PROJECT_DIR$/Assets/Scripts/Game/Market.cs" />
-      <option value="$PROJECT_DIR$/Assets/Scripts/Game/Marketing.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/Game/Components.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/Game/GlobalParam.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/Game/Bank.cs" />
+      <option value="$PROJECT_DIR$/Assets/Scripts/Menu/Buttons.cs" />
+      <option value="$PROJECT_DIR$/Assets/Scripts/Game/Marketing.cs" />
+      <option value="$PROJECT_DIR$/Assets/Scripts/Game/Market.cs" />
+      <option value="$PROJECT_DIR$/Assets/Scripts/Game/Research.cs" />
     </changedPaths>
   </component>
   <component name="ProjectId" id="1pktrilB6RyYtCJjJm1BXuYw0qt" />
@@ -74,6 +83,7 @@
       <workItem from="1617174523546" duration="11638000" />
       <workItem from="1617263480370" duration="6990000" />
       <workItem from="1617439239037" duration="3130000" />
+      <workItem from="1617469946238" duration="2648000" />
     </task>
     <servers />
   </component>

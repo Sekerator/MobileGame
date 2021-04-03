@@ -17,7 +17,6 @@
             <e p="Market.cs" t="Include" />
             <e p="Marketing.cs" t="Include" />
             <e p="Research.cs" t="Include" />
-            <e p="Storage.cs" t="Include" />
           </e>
           <e p="Menu" t="Include">
             <e p="Buttons.cs" t="Include" />
