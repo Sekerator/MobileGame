@@ -172,7 +172,7 @@ public class Bank : MonoBehaviour
 	/**
 	 * кнопка перехода на следующий ход
 	 */
-	public void seasonNext()
+	public void nextSeason()
 	{
 		if (sumCredit != 0)
 		{

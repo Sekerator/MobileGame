@@ -35,8 +35,9 @@ public class GlobalParam : MonoBehaviour
     
     public void nextSeason_butt()
     {
-        gameObject.GetComponent<Bank>().seasonNext();
+        gameObject.GetComponent<Bank>().nextSeason();
         gameObject.GetComponent<Marketing>().nextSeason();
+        gameObject.GetComponent<Components>().nextSeason();
         
         nextSeason();
     }

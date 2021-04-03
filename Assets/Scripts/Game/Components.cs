@@ -12,6 +12,7 @@ public class Components : MonoBehaviour
 	public int materialsWasted { get; set; }
 	public double price { get; set; }
 	public int count { get; set; }
+	public bool created { get; set; }
 	private string element;
 	private GlobalParam globalParametrs;
 	public List<Components> engine = new List<Components>();
@@ -97,8 +98,8 @@ public class Components : MonoBehaviour
 	public void create_butt()
 	{
 		if ((Convert.ToInt32(countInputField.text) * Convert.ToInt32(priceText.text) <=
-		    Convert.ToDouble(globalParametrs.money.text)) && (Convert.ToInt32(countInputField.text) * Convert.ToInt32(materialText.text) <=
-		                                                      Convert.ToDouble(globalParametrs.materials.text)))
+		     Convert.ToDouble(globalParametrs.money.text)) && (Convert.ToInt32(countInputField.text) * Convert.ToInt32(materialText.text) <=
+		                                                       Convert.ToDouble(globalParametrs.materials.text)))
 		{
 			if (element == "Двигатель")
 			{
@@ -108,6 +109,7 @@ public class Components : MonoBehaviour
 				dataObj.materialsWasted = Convert.ToInt32(materialText.text);
 				dataObj.price = Convert.ToDouble(priceText.text);
 				dataObj.count = Convert.ToInt32(countInputField.text);
+				dataObj.created = false;
 				engine.Add(dataObj);
 			}
 			else if (element == "Корпус")
@@ -118,6 +120,7 @@ public class Components : MonoBehaviour
 				dataObj.materialsWasted = Convert.ToInt32(materialText.text);
 				dataObj.price = Convert.ToDouble(priceText.text);
 				dataObj.count = Convert.ToInt32(countInputField.text);
+				dataObj.created = false;
 				body.Add(dataObj);
 			}
 			else if (element == "Шасси")
@@ -128,6 +131,7 @@ public class Components : MonoBehaviour
 				dataObj.materialsWasted = Convert.ToInt32(materialText.text);
 				dataObj.price = Convert.ToDouble(priceText.text);
 				dataObj.count = Convert.ToInt32(countInputField.text);
+				dataObj.created = false;
 				chassis.Add(dataObj);
 			}
 
@@ -155,11 +159,11 @@ public class Components : MonoBehaviour
 		upgrade.interactable = true;
 		element = el;
 		numberObject = 0;
-		if (element == "Двигатель" && engine.Count != 0)
+		if ((element == "Двигатель" && engine.Count != 0) && (engine[numberObject].created == true))
 				viewInfo(engine[numberObject]);
-		else if (element == "Корпус" && body.Count != 0)
+		else if ((element == "Корпус" && body.Count != 0) && (body[numberObject].created == true))
 				viewInfo(body[numberObject]);
-		else if (element == "Шасси" && chassis.Count != 0)
+		else if ((element == "Шасси" && chassis.Count != 0) && (chassis[numberObject].created == true))
 			viewInfo(chassis[numberObject]);
 		else
 		{
@@ -287,6 +291,27 @@ public class Components : MonoBehaviour
 				chassis[numberObject].power = Convert.ToDouble(powerTextView.text);
 				chassis[numberObject].price = Convert.ToDouble(priceTextView.text);
 			}
+		}
+	}
+
+	public void nextSeason()
+	{
+		foreach (var obj in engine)
+		{
+			if(obj.created == false)
+				obj.created = true;
+		}
+		
+		foreach (var obj in body)
+		{
+			if(obj.created == false)
+				obj.created = true;
+		}
+		
+		foreach (var obj in chassis)
+		{
+			if(obj.created == false)
+				obj.created = true;
 		}
 	}
 }
