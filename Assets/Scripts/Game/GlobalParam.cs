@@ -38,6 +38,7 @@ public class GlobalParam : MonoBehaviour
         gameObject.GetComponent<Bank>().nextSeason();
         gameObject.GetComponent<Marketing>().nextSeason();
         gameObject.GetComponent<Components>().nextSeason();
+        gameObject.GetComponent<Assembly>().nextSeason();
         
         nextSeason();
     }

@@ -146,7 +146,10 @@ public class Components : MonoBehaviour
 
 	public void viewComponent_butt(string el)
 	{
-		if (engine.Count > 1)
+		element = el;
+		if ((engine.Count > 1 && element == "Двигатель" && engine[numberObject].created == true) ||
+		    (body.Count > 1 && element == "Корпус" && body[numberObject].created == true) ||
+		    (chassis.Count > 1 && element == "Шасси" && chassis[numberObject].created == true))
 		{
 			leftView.interactable = false;
 			rightView.interactable = true;
@@ -157,7 +160,6 @@ public class Components : MonoBehaviour
 			rightView.interactable = false;
 		}
 		upgrade.interactable = true;
-		element = el;
 		numberObject = 0;
 		if ((element == "Двигатель" && engine.Count != 0) && (engine[numberObject].created == true))
 				viewInfo(engine[numberObject]);
@@ -181,7 +183,7 @@ public class Components : MonoBehaviour
 		{
 			if (element == "Двигатель")
 			{
-				if (engine.Count > numberObject + 1)
+				if ((engine.Count > numberObject + 1)  && (engine[numberObject + 1].created == true))
 				{
 					numberObject++;
 					if (leftView.interactable == false)
@@ -193,7 +195,7 @@ public class Components : MonoBehaviour
 			}
 			else if (element == "Корпус")
 			{
-				if (body.Count > numberObject + 1)
+				if ((body.Count > numberObject + 1) && (body[numberObject + 1].created == true))
 				{
 					numberObject++;
 					if (leftView.interactable == false)
@@ -205,7 +207,7 @@ public class Components : MonoBehaviour
 			}
 			else if (element == "Шасси")
 			{
-				if (chassis.Count > numberObject + 1)
+				if ((chassis.Count > numberObject + 1) && (chassis[numberObject + 1].created == true))
 				{
 					numberObject++;
 					if (leftView.interactable == false)
@@ -313,5 +315,6 @@ public class Components : MonoBehaviour
 			if(obj.created == false)
 				obj.created = true;
 		}
+		
 	}
 }
