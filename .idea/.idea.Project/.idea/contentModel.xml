@@ -9,7 +9,6 @@
         <e p="Scripts" t="Include">
           <e p="Game" t="Include">
             <e p="Assembly.cs" t="Include" />
-            <e p="Auto.cs" t="Include" />
             <e p="Bank.cs" t="Include" />
             <e p="Components.cs" t="Include" />
             <e p="GlobalParam.cs" t="Include" />

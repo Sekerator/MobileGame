@@ -38,7 +38,7 @@ public class Assembly : MonoBehaviour
     {
         if ((chassisLevel.options.Count != 0) && (bodyLevel.options.Count != 0) && (engineLevel.options.Count != 0))
         {
-            if (Convert.ToInt32(countInputField.text) * Convert.ToInt32(priceText.text) <=
+            if (Convert.ToDouble(countInputField.text) * Convert.ToDouble(priceText.text) <=
                 Convert.ToDouble(globalParametrs.money.text))
             {
                 Assembly dataObj = new Assembly();
@@ -51,7 +51,7 @@ public class Assembly : MonoBehaviour
 
 
                 globalParametrs.money.text = (Convert.ToDouble(globalParametrs.money.text) -
-                                              Convert.ToInt32(countInputField.text) * Convert.ToInt32(priceText.text))
+                                              Convert.ToDouble(countInputField.text) * Convert.ToDouble(priceText.text))
                     .ToString();
             }
         }
@@ -115,13 +115,13 @@ public class Assembly : MonoBehaviour
         foreach (var obj in components.body)
         {
             if (obj.created == true)
-                chassisLevel.options.Add(new Dropdown.OptionData(obj.model));
+                bodyLevel.options.Add(new Dropdown.OptionData(obj.model));
         }
 
         foreach (var obj in components.chassis)
         {
             if (obj.created == true)
-                bodyLevel.options.Add(new Dropdown.OptionData(obj.model));
+                chassisLevel.options.Add(new Dropdown.OptionData(obj.model));
         }
 
         if (engineLevel.options.Count != 0)
@@ -156,6 +156,7 @@ public class Assembly : MonoBehaviour
 
     public void viewAuto_butt()
     {
+        numberObject = 0;
         if (auto.Count > 1 && auto[numberObject].created == true)
         {
             leftView.interactable = false;
@@ -166,8 +167,7 @@ public class Assembly : MonoBehaviour
             leftView.interactable = false;
             rightView.interactable = false;
         }
-
-        numberObject = 0;
+        
         if (auto.Count != 0 && auto[numberObject].created == true)
             viewInfo(auto[numberObject]);
         else

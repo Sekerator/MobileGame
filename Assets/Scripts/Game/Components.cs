@@ -146,6 +146,7 @@ public class Components : MonoBehaviour
 
 	public void viewComponent_butt(string el)
 	{
+		numberObject = 0;
 		element = el;
 		if ((engine.Count > 1 && element == "Двигатель" && engine[numberObject].created == true) ||
 		    (body.Count > 1 && element == "Корпус" && body[numberObject].created == true) ||
@@ -160,7 +161,6 @@ public class Components : MonoBehaviour
 			rightView.interactable = false;
 		}
 		upgrade.interactable = true;
-		numberObject = 0;
 		if ((element == "Двигатель" && engine.Count != 0) && (engine[numberObject].created == true))
 				viewInfo(engine[numberObject]);
 		else if ((element == "Корпус" && body.Count != 0) && (body[numberObject].created == true))
