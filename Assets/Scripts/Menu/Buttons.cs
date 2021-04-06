@@ -9,9 +9,9 @@ using UnityEngine.UI;
 public class Buttons : MonoBehaviour
 {
     //private string url = "http://mopsnet.tk/startGame.php";
-    private string url = "http://dev.mobile.game/startGame.php";
+    //private string url = "http://dev.mobile.game/startGame.php";
 
-    //private string url = "http://localhost/startGame.php";
+    private string url = "http://localhost/startGame.php";
     public GameObject loadingPanel;
     public Text loadingText;
     private int countPlayers = 3;
@@ -122,21 +122,6 @@ public class Buttons : MonoBehaviour
             PlayerPrefs.DeleteKey("nickname");
         logined();
     }
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
     
     private void FixedUpdate()
     {
