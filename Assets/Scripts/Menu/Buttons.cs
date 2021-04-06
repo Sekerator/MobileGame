@@ -9,54 +9,43 @@ using UnityEngine.UI;
 public class Buttons : MonoBehaviour
 {
     //private string url = "http://mopsnet.tk/startGame.php";
-    //private string url = "http://dev.mobile.game/startGame.php";
-    private string url = "http://localhost/startGame.php";
+    private string url = "http://dev.mobile.game/startGame.php";
+
+    //private string url = "http://localhost/startGame.php";
     public GameObject loadingPanel;
     public Text loadingText;
     private int countPlayers = 3;
     private float timeRemaining = 5f;
     private string layout = "Пожалуйста ожидайте\nПользователей в очереди: ";
-    
+
     // Profile
     public GameObject ProfilePanel;
     public InputField nickname, password, updateNickname;
-    public GameObject login_butt, registration_butt, updateLogin_butt;
+    public GameObject loginedObj, unloginedObj, errorText;
 
     public void Awake()
     {
         if (PlayerPrefs.HasKey("nickname"))
             logined(true);
     }
-    
+
     /**
      * Переключение панели 
      */
     private void logined(bool log = false)
     {
-        if (log == false)
-        {
-            updateLogin_butt.SetActive(false);
-            GameObject dataObj = updateNickname.GetComponent<GameObject>();
-            dataObj.SetActive(false);
-            login_butt.SetActive(true);
-            registration_butt.SetActive(true);
-            dataObj = nickname.GetComponent<GameObject>();
-            dataObj.SetActive(true);
-            dataObj = password.GetComponent<GameObject>();
-            dataObj.SetActive(true);
-        }
-        else
-        {
-            updateLogin_butt.SetActive(true);
-            GameObject dataObj = updateNickname.GetComponent<GameObject>();
-            dataObj.SetActive(true);
-            login_butt.SetActive(false);
-            registration_butt.SetActive(false);
-            dataObj = nickname.GetComponent<GameObject>();
-            dataObj.SetActive(false);
-            dataObj = password.GetComponent<GameObject>();
-            dataObj.SetActive(false);
-        }
+        loginedObj.SetActive(!log);
+        unloginedObj.SetActive(log);
+    }
+    
+    public void login()
+    {
+        StartCoroutine(log_in());
+    }
+
+    public void registration()
+    {
+        StartCoroutine(registrat_ion());
     }
 
     IEnumerator log_in()
@@ -71,9 +60,15 @@ public class Buttons : MonoBehaviour
         {
             PlayerPrefs.SetString("nickname", nickname.text);
             logined(true);
+            errorText.SetActive(false);
+        }
+        else
+        {
+            errorText.SetActive(true);
+            errorText.GetComponent<Text>().text = "Неправильный логин или пароль";
         }
     }
-    
+
     IEnumerator registrat_ion()
     {
         WWWForm add = new WWWForm();
@@ -86,22 +81,62 @@ public class Buttons : MonoBehaviour
         {
             PlayerPrefs.SetString("nickname", nickname.text);
             logined(true);
+            errorText.SetActive(false);
         }
         else
         {
-            Debug.Log(a.text);
+            errorText.SetActive(true);
+            errorText.GetComponent<Text>().text = "Пользователь с таким именем уже существует";
         }
     }
-    
-    public void login()
+
+    public void update()
     {
-        StartCoroutine(log_in());
+        StartCoroutine(updateNick());
     }
     
-    public void registration()
+    IEnumerator updateNick()
     {
-        StartCoroutine(registrat_ion());
+        WWWForm add = new WWWForm();
+        add.AddField("request", "update_user");
+        add.AddField("nicknameNew", updateNickname.text);
+        add.AddField("nicknameOld", PlayerPrefs.GetString("nickname"));
+        WWW a = new WWW(url, add);
+        yield return a;
+        if (a.text == "Good")
+        {
+            PlayerPrefs.SetString("nickname", updateNickname.text);
+            logined(true);
+            errorText.SetActive(false);
+        }
+        else
+        {
+            errorText.SetActive(true);
+            errorText.GetComponent<Text>().text = "Пользователь с таким именем уже существует";
+        }
     }
+
+    public void exitProfile()
+    {
+        if(PlayerPrefs.HasKey("nickname"))
+            PlayerPrefs.DeleteKey("nickname");
+        logined();
+    }
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
     
     private void FixedUpdate()
     {
@@ -111,6 +146,4 @@ public class Buttons : MonoBehaviour
             timeRemaining = 5f;
         }
     }
-    
-    
 }
