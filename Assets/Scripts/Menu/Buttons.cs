@@ -8,7 +8,7 @@ using UnityEngine.UI;
 
 public class Buttons : MonoBehaviour
 {
-    private string url = "http://mopsnet.tk/startGame.php";
+    private string url = "http://sekerator.beget.tech/startGame.php";
     //private string url = "http://dev.mobile.game/startGame.php";
 
     //private string url = "http://localhost/startGame.php";
