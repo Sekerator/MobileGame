@@ -145,10 +145,7 @@ public class Buttons : MonoBehaviour
         yield return a;
 
         if (a.text != "Error")
-        {
-            Debug.Log(a.text);
             loadingText.text = "Пожалуйста ожидайте\nПользователей в очереди: " + a.text;
-        }
         else
             Debug.Log(a.text);
 
@@ -156,6 +153,7 @@ public class Buttons : MonoBehaviour
         {
             add = new WWWForm();
             add.AddField("request", "startGame");
+            add.AddField("countForQueue", countPlayers);
             a = new WWW(url, add);
             yield return a;
 
@@ -180,5 +178,28 @@ public class Buttons : MonoBehaviour
         }
         else
             Debug.Log(a.text);
+    }
+
+    public void exitLoading()
+    {
+        StartCoroutine(exitL());
+    }
+    
+    IEnumerator exitL()
+    {
+        WWWForm add = new WWWForm();
+        add.AddField("request", "exitLoading");
+        add.AddField("nickname", PlayerPrefs.GetString("nickname"));
+        WWW a = new WWW(url, add);
+        yield return a;
+        
+        if(a.text == "Error")
+            Debug.Log(a.text);
+    }
+
+    private void OnApplicationFocus(bool hasFocus)
+    {
+        if((hasFocus == false) && (loadingPanel.activeSelf == true))
+            exitLoading();
     }
 }
