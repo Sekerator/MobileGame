@@ -8,10 +8,10 @@ using UnityEngine.UI;
 
 public class Buttons : MonoBehaviour
 {
-    //private string url = "http://mopsnet.tk/startGame.php";
+    private string url = "http://mopsnet.tk/startGame.php";
     //private string url = "http://dev.mobile.game/startGame.php";
 
-    private string url = "http://localhost/startGame.php";
+    //private string url = "http://localhost/startGame.php";
     public GameObject loadingPanel;
     public Text loadingText;
     private int countPlayers = 3;
@@ -128,7 +128,57 @@ public class Buttons : MonoBehaviour
         timeRemaining -= Time.deltaTime;
         if (timeRemaining <= 0)
         {
+            if (loadingPanel.activeSelf == true)
+            {
+                StartCoroutine(loading());
+            }
             timeRemaining = 5f;
         }
+    }
+
+    IEnumerator loading()
+    {
+        WWWForm add = new WWWForm();
+        add.AddField("request", "setQueue");
+        add.AddField("nickname", PlayerPrefs.GetString("nickname"));
+        WWW a = new WWW(url, add);
+        yield return a;
+
+        if (a.text != "Error")
+        {
+            Debug.Log(a.text);
+            loadingText.text = "Пожалуйста ожидайте\nПользователей в очереди: " + a.text;
+        }
+        else
+            Debug.Log(a.text);
+
+        if (a.text == countPlayers.ToString())
+        {
+            add = new WWWForm();
+            add.AddField("request", "startGame");
+            a = new WWW(url, add);
+            yield return a;
+
+            if (a.text == "Good")
+            {
+                add = new WWWForm();
+                add.AddField("request", "queue");
+                add.AddField("nickname", PlayerPrefs.GetString("nickname"));
+                a = new WWW(url, add);
+                yield return a;
+
+                if (a.text != "Error")
+                {
+                    PlayerPrefs.SetString("number", a.text);
+                    SceneManager.LoadScene("Game");
+                }
+                else
+                    Debug.Log(a.text);
+            }
+            else
+                Debug.Log(a.text);
+        }
+        else
+            Debug.Log(a.text);
     }
 }
