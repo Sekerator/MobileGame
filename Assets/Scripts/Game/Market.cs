@@ -6,7 +6,7 @@ using UnityEngine.UI;
 
 public class Market : MonoBehaviour
 {
-	public GameObject thisPanel, errorText, mainPanel;
+	public GameObject errorText, mainPanel;
 	public Button closeButton;
 	private GlobalParam globalParametrs;
 	// Materials
@@ -16,14 +16,6 @@ public class Market : MonoBehaviour
 	private void Awake()
 	{
 		globalParametrs = mainPanel.GetComponent<GlobalParam>();
-	}
-
-	/**
-	 * Закрытие панели маркета
-	 */
-	public void closeButt()
-	{
-		thisPanel.SetActive(false);
 	}
 
 	/**

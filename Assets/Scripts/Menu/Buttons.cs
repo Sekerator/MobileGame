@@ -14,7 +14,7 @@ public class Buttons : MonoBehaviour
     //public string url = "http://localhost/startGame.php";
     public GameObject loadingPanel;
     public Text loadingText;
-    private int countPlayers = 3;
+    private int countPlayers = 2;
     private float timeRemaining = 5f;
     private string layout = "Пожалуйста ожидайте\nПользователей в очереди: ";
 
@@ -85,6 +85,7 @@ public class Buttons : MonoBehaviour
         }
         else
         {
+            Debug.Log(a.text);
             errorText.SetActive(true);
             errorText.GetComponent<Text>().text = "Пользователь с таким именем уже существует";
         }

@@ -14,10 +14,11 @@ public class GlobalParam : MonoBehaviour
     private float timeRemaining = 5f;
     private string url = "http://mopsnet.tk/game.php";
     private bool allReady = false;
-    public GameObject readyPanel;
+    public GameObject readyPanel, buttons;
     
     private void Awake()
     {
+        StartCoroutine(createReady());
         materials.text = "0";
         money.text = "100000";
         marketing.text = "1";
@@ -34,7 +35,6 @@ public class GlobalParam : MonoBehaviour
         }
         else
             thisSeason++;
-        time.text = season[thisSeason] + " " + year;
     }
     
     private void nextSeason_butt()
@@ -43,8 +43,9 @@ public class GlobalParam : MonoBehaviour
         gameObject.GetComponent<Marketing>().nextSeason();
         gameObject.GetComponent<Components>().nextSeason();
         gameObject.GetComponent<Assembly>().nextSeason();
+        buttons.SetActive(true);
         
-        nextSeason();
+        time.text = season[thisSeason] + " " + year;
     }
 
     IEnumerator createReady()
@@ -62,10 +63,12 @@ public class GlobalParam : MonoBehaviour
 
     IEnumerator readyNextSeason()
     {
+        nextSeason();
         WWWForm add = new WWWForm();
         add.AddField("request", "nextSeason");
         add.AddField("nickname", PlayerPrefs.GetString("nickname"));
         add.AddField("room_number", PlayerPrefs.GetString("room_number"));
+        add.AddField("this_season", season[thisSeason]);
         WWW a = new WWW(url, add);
         yield return a;
 
@@ -93,75 +96,3 @@ public class GlobalParam : MonoBehaviour
         }
     }
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-//------------------------------------------------------------------------------------------
-/* Пример работы с PHP
- 
-public class GlobalParam : MonoBehaviour
-{
-    public int materials { get; set; }
-    public double money { get; set; }
-    public int marketing { get; set; }
-    public int research { get; set; }
-    public int machineToolCount { get; set; }
-    public int time { get; set; }
-    private void Start()
-    {
-        StartCoroutine(sss());
-    }
-
-    IEnumerator sss()
-    {
-        WWWForm add = new WWWForm();
-        add.AddField("age", "12");
-        add.AddField("name", "tolik");
-        add.AddField("pass", "add");
-        WWW a = new WWW("test.ru/test.php", add);
-        yield return a;
-        //sss lol = JsonUtility.FromJson<sss>("{\"users\":" + a.text + "}");
-        JSONArray lol = JSON.Parse(a.text) as JSONArray;
-        Debug.Log(lol[1]["id"]);
-    }
-}
-
-[Serializable]
-public class sss
-{
-public ss[] kek;
-}
-
-[Serializable]
-public class ss
-{
-public string name { get; set; }
-public int age { get; set; }
-public string pass { get; set; }
-}
-*/

@@ -6,7 +6,7 @@ using UnityEngine.UI;
 
 public class Marketing : MonoBehaviour
 {
-	public GameObject thisPanel, mainPanel, errorText;
+	public GameObject mainPanel, errorText;
 	private GlobalParam globalParametrs;
 
 	private void Awake()
@@ -14,11 +14,6 @@ public class Marketing : MonoBehaviour
 		globalParametrs = mainPanel.GetComponent<GlobalParam>();
 		if (!PlayerPrefs.HasKey("marketing"))
 			PlayerPrefs.SetString("marketing", "0");
-	}
-	
-	public void closeButt()
-	{
-		thisPanel.SetActive(false);
 	}
 
 	public void newspaper_butt()
