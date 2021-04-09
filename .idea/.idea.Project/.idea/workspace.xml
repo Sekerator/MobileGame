@@ -2,7 +2,18 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="eaa42414-c2cd-4877-8c56-7595586efe28" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.Project/.idea/contentModel.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Project/.idea/contentModel.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.Project/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Project/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scenes/Game.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/Game.unity" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Game/GlobalParam.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Game/GlobalParam.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/Menu/Buttons.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Menu/Buttons.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Menu/JSON.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Menu/JSON/SimpleJSON.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Menu/JSON/SimpleJSON.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Menu/JSON/SimpleJSONBinary.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Menu/JSON/SimpleJSONBinary.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Menu/JSON/SimpleJSONUnity.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Menu/JSON/SimpleJSONUnity.cs.meta" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -15,14 +26,15 @@
   <component name="IdeDocumentHistory">
     <changedPaths>
       <option value="$PROJECT_DIR$/Assets/Scripts/Game/Engine.cs" />
-      <option value="$PROJECT_DIR$/Assets/Scripts/Game/GlobalParam.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/Game/Bank.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/Game/Marketing.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/Game/Market.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/Game/Research.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/Game/Components.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/Game/Assembly.cs" />
+      <option value="$PROJECT_DIR$/Assets/Scripts/Game/Rating.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/Menu/Buttons.cs" />
+      <option value="$PROJECT_DIR$/Assets/Scripts/Game/GlobalParam.cs" />
     </changedPaths>
   </component>
   <component name="ProjectId" id="1pktrilB6RyYtCJjJm1BXuYw0qt" />
@@ -80,6 +92,11 @@
       <workItem from="1617783097724" duration="4494000" />
       <workItem from="1617811895599" duration="2947000" />
       <workItem from="1617816843193" duration="32000" />
+      <workItem from="1617956228377" duration="998000" />
+      <workItem from="1617960155893" duration="5313000" />
+      <workItem from="1617974196793" duration="4727000" />
+      <workItem from="1617979231750" duration="40000" />
+      <workItem from="1617979309551" duration="24000" />
     </task>
     <servers />
   </component>

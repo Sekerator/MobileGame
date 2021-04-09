@@ -15,7 +15,7 @@ public class Buttons : MonoBehaviour
     public GameObject loadingPanel;
     public Text loadingText;
     private int countPlayers = 2;
-    private float timeRemaining = 5f;
+    private float timeRemaining = 3f;
     private string layout = "Пожалуйста ожидайте\nПользователей в очереди: ";
 
     // Profile
@@ -80,6 +80,7 @@ public class Buttons : MonoBehaviour
         if (a.text == "Good")
         {
             PlayerPrefs.SetString("nickname", nickname.text);
+            PlayerPrefs.SetString("password", password.text);
             logined(true);
             errorText.SetActive(false);
         }
@@ -133,7 +134,7 @@ public class Buttons : MonoBehaviour
             {
                 StartCoroutine(loading());
             }
-            timeRemaining = 5f;
+            timeRemaining = 3f;
         }
     }
 

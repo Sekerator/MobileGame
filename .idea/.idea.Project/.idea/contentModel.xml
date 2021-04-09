@@ -12,18 +12,18 @@
             <e p="Bank.cs" t="Include" />
             <e p="Components.cs" t="Include" />
             <e p="GlobalParam.cs" t="Include" />
-            <e p="MainScreenButtons.cs" t="Include" />
-            <e p="Market.cs" t="Include" />
-            <e p="Marketing.cs" t="Include" />
-            <e p="Research.cs" t="Include" />
-          </e>
-          <e p="Menu" t="Include">
-            <e p="Buttons.cs" t="Include" />
             <e p="JSON" t="Include">
               <e p="SimpleJSON.cs" t="Include" />
               <e p="SimpleJSONBinary.cs" t="Include" />
               <e p="SimpleJSONUnity.cs" t="Include" />
             </e>
+            <e p="Market.cs" t="Include" />
+            <e p="Marketing.cs" t="Include" />
+            <e p="Rating.cs" t="Include" />
+            <e p="Research.cs" t="Include" />
+          </e>
+          <e p="Menu" t="Include">
+            <e p="Buttons.cs" t="Include" />
           </e>
         </e>
       </e>
